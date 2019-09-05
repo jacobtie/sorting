@@ -1,0 +1,7 @@
+# Editor config
+.vscode
+omnisharp.json
+
+# C# Gunk
+bin
+obj
