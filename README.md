@@ -8,4 +8,4 @@ The easiest way to run/edit/debug this application is by using Visual Studio Cod
 
 ## Making Changes
 
-We will loosely be following GitFlow in making changes to this repository. Please remember to make a new branch off of master for the sorts you add and make a pull request to be reviewed when finished. 
+We will loosely be following GitFlow in making changes to this repository. Please remember to make a new branch off of the dev branch for the sorts you add and make a pull request to be reviewed when finished. We will make the merge to master when all of the sorts are finished. 
