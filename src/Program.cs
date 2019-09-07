@@ -8,6 +8,9 @@ namespace assignment1
 		static void Main(string[] args)
 		{
 			SortRecorder.Run();
+
+			Console.WriteLine("\nPress the enter key to exit...");
+			Console.ReadLine();
 		}
 	}
 }
