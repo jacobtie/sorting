@@ -2,7 +2,7 @@ using System;
 
 namespace assignment1.sorting
 {
-	public static class QuickSort
+	public static class IPQuickSort
 	{
 		public static void quickSort(int[] arr, int start, int end)
 		{
