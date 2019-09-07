@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using assignment1.sorting;
 
 namespace assignment1
@@ -7,11 +7,11 @@ namespace assignment1
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Merge Sort: ");
+			Console.WriteLine("In-Place Quick Sort: ");
 			
 			int[] arr = {10, 4, 5, 2, 7, 9, 6, 1, 3, 8};
 
-			MergeSort.sort(arr, 0, arr.Length-1);
+			IPQuickSort.sort(arr, 0, arr.Length-1);
 
 			foreach (int num in arr)
 			{
