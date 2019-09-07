@@ -11,7 +11,7 @@ namespace assignment1
 			
 			int[] arr = {10, 4, 5, 2, 7, 9, 6, 1, 3, 8};
 
-			IPQuickSort.quickSort(arr, 0, arr.Length-1);
+			IPQuickSort.sort(arr, 0, arr.Length-1);
 
 			foreach (int num in arr)
 			{
