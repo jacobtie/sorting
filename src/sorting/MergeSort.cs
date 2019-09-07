@@ -4,20 +4,20 @@ namespace assignment1.sorting
 {
 	public static class MergeSort
 	{
-		public static void mergeSort(int[] arr, int start, int end)
+		public static void sort(int[] arr, int start, int end)
 		{
 			if (start < end)
 			{
 				int mid = (end + start) / 2;
 
-				mergeSort(arr, start, mid);
-				mergeSort(arr, mid+1, end);
+				sort(arr, start, mid);
+				sort(arr, mid+1, end);
 
 				merge(arr, start, mid, end);
 			}
 		}
 
-		public static void merge(int[] arr, int start, int mid, int end)
+		private static void merge(int[] arr, int start, int mid, int end)
 		{
 			int sizeL = mid - start + 1;
 			int sizeR = end - mid;

@@ -7,14 +7,19 @@ namespace assignment1
 	{
 		static void Main(string[] args)
 		{
-			int[] arr = {10, 6, 5, 4, 7, 3, 8, 9, 1, 2};
+			Console.WriteLine("Merge Sort: ");
+			
+			int[] arr = {10, 4, 5, 2, 7, 9, 6, 1, 3, 8};
 
-			MergeSort.mergeSort(arr, 0, arr.Length-1);
+			MergeSort.sort(arr, 0, arr.Length-1);
 
 			foreach (int num in arr)
 			{
-				Console.WriteLine(num);
+				Console.Write(num);
+				Console.Write("  ");
 			}
+
+			Console.WriteLine();
 		}
 	}
 }
