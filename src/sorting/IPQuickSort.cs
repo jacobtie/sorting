@@ -8,32 +8,42 @@ namespace assignment1.sorting
 		{
 			if (start < end)
 			{
-				int index = partition(arr, start, end);
+				int[] index = partition(arr, start, end);
 
-				quickSort(arr, start, index - 1);
-				quickSort(arr, index + 1, end);
+				quickSort(arr, start, index[1]);
+				quickSort(arr, index[0], end);
 			}
 		}
 
-		private static int partition(int[] arr, int start, int end)
+		private static int[] partition(int[] arr, int start, int end)
 		{
 			Random rnd = new Random();
 
-			int pivot = arr[start];
-			int highest = end + 1;
+			int pivot = arr[rnd.Next(start, end+1)];
+			int left = start;
+			int right = end;
 
-			for (int i = end; i > start; i--)
+			while (left <= right)
 			{
-				if (arr[i] > pivot)
+				while (arr[left] < pivot)
 				{
-					highest--;
-					swap(arr, highest, i);
+					left++;
+				}
+
+				while (arr[right] > pivot)
+				{
+					right--;
+				}
+
+				if (left <= right)
+				{
+					swap(arr, left, right);
+					left++;
+					right--;
 				}
 			}
 
-			swap(arr, highest - 1, start);
-
-			return highest - 1;
+			return new int[] {left, right};
 		}
 
 		private static void swap(int[] arr, int index1, int index2)
