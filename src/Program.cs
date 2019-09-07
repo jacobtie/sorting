@@ -7,11 +7,11 @@ namespace assignment1
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("In-Place Quick Sort: ");
+			Console.WriteLine("Median-3 Quick Sort: ");
 			
 			int[] arr = {10, 4, 5, 2, 7, 9, 6, 1, 3, 8};
 
-			IPQuickSort.sort(arr, 0, arr.Length-1);
+			ModQuickSort.sort(arr, 0, arr.Length-1);
 
 			foreach (int num in arr)
 			{
