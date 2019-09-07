@@ -1,4 +1,5 @@
 ﻿using System;
+using assignment1.output;
 
 namespace assignment1
 {
@@ -6,7 +7,7 @@ namespace assignment1
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			SortRecorder.Run();
 
 			Console.WriteLine("\nPress enter to exit...");
 			Console.Read();
