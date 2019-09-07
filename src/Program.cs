@@ -7,14 +7,19 @@ namespace assignment1
 	{
 		static void Main(string[] args)
 		{
-			int[] arr = {10, 3, 6, 2, 5, 4, 9, 8, 7, 1};
+			Console.WriteLine("Median-3 Quick Sort: ");
+			
+			int[] arr = {10, 4, 5, 2, 7, 9, 6, 1, 3, 8};
 
-			ModQuickSort.quickSort(arr, 0, arr.Length-1);
+			ModQuickSort.sort(arr, 0, arr.Length-1);
 
 			foreach (int num in arr)
 			{
-				Console.WriteLine(num);
+				Console.Write(num);
+				Console.Write("  ");
 			}
+
+			Console.WriteLine();
 		}
 	}
 }

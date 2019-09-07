@@ -4,14 +4,14 @@ namespace assignment1.sorting
 {
 	public static class ModQuickSort
 	{
-		public static void quickSort(int[] arr, int start, int end)
+		public static void sort(int[] arr, int start, int end)
 		{
 			if (start < end)
 			{
 				int[] index = partition(arr, start, end);
 
-				quickSort(arr, start, index[1]);
-				quickSort(arr, index[0], end);
+				sort(arr, start, index[1]);
+				sort(arr, index[0], end);
 			}
 		}
 
