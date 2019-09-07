@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using assignment1.sorting;
 
 namespace assignment1
