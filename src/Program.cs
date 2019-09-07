@@ -1,4 +1,5 @@
 ﻿using System;
+using assignment1.sorting;
 
 namespace assignment1
 {
@@ -6,10 +7,14 @@ namespace assignment1
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			int[] arr = {10, 3, 6, 2, 5, 4, 9, 8, 7, 1};
 
-			Console.WriteLine("\nPress enter to exit...");
-			Console.Read();
+			ModQuickSort.quickSort(arr, 0, arr.Length-1);
+
+			foreach (int num in arr)
+			{
+				Console.WriteLine(num);
+			}
 		}
 	}
 }
