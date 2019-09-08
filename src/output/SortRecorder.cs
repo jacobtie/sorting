@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 using System.Diagnostics;
 using assignment1.sorting;
 using CsvHelper;
@@ -15,10 +16,10 @@ namespace assignment1.output
 			Console.WriteLine("This will take a while! When this program finishes execution, a CSV will be produced in this directory displaying the outputs.");
 
 			var csvRecords = new List<CSVRecord>();
-			var inputSizes = new int[] { 10, 100, 1000, 2000, 4000, 5000, 10000, 20000, 30000, 40000, 50000 };
+			var inputSizes = new int[] { 10, 100, 1000, 1500, 2000, 2500, 4000, 4500, 5000, 7500, 10000, 12500, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000 };
 			var stopWatch = new Stopwatch();
 			var rand = new Random();
-			for (int i = 1; i <= 3; i++)
+			for (int i = 1; i <= 5; i++)
 			{
 				Console.WriteLine($"Starting Test Iteration {i}");
 				foreach (var n in inputSizes)
@@ -26,13 +27,14 @@ namespace assignment1.output
 					var record = new CSVRecord { Iteration = i, NumElements = n };
 					Console.WriteLine($"\tInput Size n = {n}");
 					Console.WriteLine($"\tGenerating {n} random numbers");
+					var randomNumbers = Enumerable.Range(0, n).Select(r => rand.Next(-1000, 1001)).ToList();
 
 					// Test Insertion Sort
 					Console.WriteLine($"\t\tStarting Insertion Sort with n = {n}");
 					Console.WriteLine("\t\t\tRunning...");
 					stopWatch.Restart();
 
-					Console.WriteLine("\t\t\tNot implemented.");
+					InsertionSort.Sort(randomNumbers);
 
 					stopWatch.Stop();
 					record.InsertionSortTime = stopWatch.ElapsedMilliseconds;
@@ -43,7 +45,7 @@ namespace assignment1.output
 					Console.WriteLine("\t\t\tRunning...");
 					stopWatch.Restart();
 
-					Console.WriteLine("\t\t\tNot implemented.");
+					MergeSort.sort(randomNumbers.ToArray(), 0, randomNumbers.Count - 1);
 
 					stopWatch.Stop();
 					record.MergeSortTime = stopWatch.ElapsedMilliseconds;
@@ -54,7 +56,7 @@ namespace assignment1.output
 					Console.WriteLine("\t\t\tRunning...");
 					stopWatch.Restart();
 
-					Console.WriteLine("\t\t\tNot implemented.");
+					HeapSort.Sort(randomNumbers);
 
 					stopWatch.Stop();
 					record.HeapSortTime = stopWatch.ElapsedMilliseconds;
@@ -65,7 +67,7 @@ namespace assignment1.output
 					Console.WriteLine("\t\t\tRunning...");
 					stopWatch.Restart();
 
-					Console.WriteLine("\t\t\tNot implemented.");
+					IPQuickSort.sort(randomNumbers.ToArray(), 0, randomNumbers.Count - 1);
 
 					stopWatch.Stop();
 					record.QuickSortInPlaceTime = stopWatch.ElapsedMilliseconds;
@@ -76,7 +78,7 @@ namespace assignment1.output
 					Console.WriteLine("\t\t\tRunning...");
 					stopWatch.Restart();
 
-					Console.WriteLine("\t\t\tNot implemented.");
+					ModQuickSort.sort(randomNumbers.ToArray(), 0, randomNumbers.Count - 1);
 
 					stopWatch.Stop();
 					record.QuickSortModifiedTime = stopWatch.ElapsedMilliseconds;
