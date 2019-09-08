@@ -6,5 +6,6 @@ omnisharp.json
 bin
 obj
 
-# CSV output
+# Test Output
 *.csv
+*.txt
