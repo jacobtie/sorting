@@ -57,16 +57,15 @@ namespace assignment1.output
 					// Test Merge Sort
 					_writeMessage($"\t\tStarting Merge Sort with n = {n}", sb);
 					_writeMessage("\t\t\tRunning...", sb);
-					var mergeArray = randomNumbers.ToArray();
 					stopWatch.Restart();
 
-					MergeSort.sort(mergeArray, 0, mergeArray.Length - 1);
+					var MergeResults = MergeSort<int>.Sort(randomNumbers);
 
 					stopWatch.Stop();
 					record.MergeSortTime = stopWatch.ElapsedMilliseconds;
 					_writeMessage($"\t\t\tCompleted Merge Sort with n = {n} with {stopWatch.ElapsedMilliseconds}ms", sb);
 					_writeMessage("\t\t\tVerifying sort results...", sb);
-					bool mergeSuccess = _isSortCorrect(mergeArray.ToList());
+					bool mergeSuccess = _isSortCorrect(MergeResults);
 					if (mergeSuccess)
 					{
 						_writeMessage("\t\t\tSort results verified!", sb);
@@ -101,16 +100,15 @@ namespace assignment1.output
 					// Test Quick Sort (In-Place)
 					_writeMessage($"\t\tStarting Quick Sort (In-Place) with n = {n}", sb);
 					_writeMessage("\t\t\tRunning...", sb);
-					var ipquickArray = randomNumbers.ToArray();
 					stopWatch.Restart();
 
-					IPQuickSort.sort(ipquickArray, 0, ipquickArray.Length - 1);
+					var IPQuickSortResults = IPQuickSort<int>.Sort(randomNumbers);
 
 					stopWatch.Stop();
 					record.QuickSortInPlaceTime = stopWatch.ElapsedMilliseconds;
 					_writeMessage($"\t\t\tCompleted Quick Sort (In-Place) with n = {n} with {stopWatch.ElapsedMilliseconds}ms", sb);
 					_writeMessage("\t\t\tVerifying sort results...", sb);
-					bool ipquickSuccess = _isSortCorrect(ipquickArray.ToList());
+					bool ipquickSuccess = _isSortCorrect(IPQuickSortResults);
 					if (ipquickSuccess)
 					{
 						_writeMessage("\t\t\tSort results verified!", sb);
@@ -124,16 +122,15 @@ namespace assignment1.output
 					// Test Quick Sort (Modified)
 					_writeMessage($"\t\tStarting Quick Sort (Modified) with n = {n}", sb);
 					_writeMessage("\t\t\tRunning...", sb);
-					var modquickArray = randomNumbers.ToArray();
 					stopWatch.Restart();
 
-					ModQuickSort.sort(modquickArray, 0, modquickArray.Length - 1);
+					var ModQuickSortResults = ModQuickSort<int>.Sort(randomNumbers);
 
 					stopWatch.Stop();
 					record.QuickSortModifiedTime = stopWatch.ElapsedMilliseconds;
 					_writeMessage($"\t\t\tCompleted Quick Sort (Modified) with n = {n} with {stopWatch.ElapsedMilliseconds}ms", sb);
 					_writeMessage("\t\t\tVerifying sort results...", sb);
-					bool modquickSuccess = _isSortCorrect(modquickArray.ToList());
+					bool modquickSuccess = _isSortCorrect(ModQuickSortResults);
 					if (modquickSuccess)
 					{
 						_writeMessage("\t\t\tSort results verified!", sb);
