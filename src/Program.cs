@@ -9,6 +9,8 @@ namespace assignment1
 	{
 		static void Main(string[] args)
 		{
+			SortRecorder.Run();
+			Console.WriteLine();
 			SortRecorder.RunEdgeCases();
 
 			Console.WriteLine("\nPress the enter key to exit...");

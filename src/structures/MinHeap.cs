@@ -18,15 +18,17 @@ namespace assignment1.structures
 
 		public MinHeap(List<T> sequence)
 		{
+			var usableSequence = sequence.Select(elem => elem).ToList();
+
 			_heapVector = new List<T>();
 
 			// Add first element of the list
 			_heapVector.Add(default(T)); // Blank because first is unused
-			_heapVector.Add(sequence[0]);
-			sequence.RemoveAt(0);
+			_heapVector.Add(usableSequence[0]);
+			usableSequence.RemoveAt(0);
 
 			// Add the rest of the elements and heapify for each
-			foreach (var element in sequence)
+			foreach (var element in usableSequence)
 			{
 				_heapVector.Add(element);
 				_heapifyUp();
