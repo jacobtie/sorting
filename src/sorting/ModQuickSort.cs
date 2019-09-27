@@ -66,7 +66,7 @@ namespace assignment1.sorting
 				// the value before index k is greater 
 				// than the current value of the sorted list
 				while (k > start && sortedList[k - 1].CompareTo(sortedList[i]) > 0)
-				{
+				{ 
 					// Set the value at k equal to the value before k in the sorted list
 					sortedList[k] = sortedList[k - 1];
 
