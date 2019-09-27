@@ -6,20 +6,26 @@ namespace assignment1.structures
 {
 	public class MinHeap<T> where T : IComparable
 	{
+		// Holds the elements in the heap using a vector based implementation
 		private List<T> _heapVector;
 
+		// Default constructor
 		public MinHeap()
 		{
+			// Initializes a new list for the vector
 			_heapVector = new List<T>();
 
 			// Add empty element
 			_heapVector.Add(default(T));
 		}
 
+		// Parameterized constructor to take in an initial sequence
 		public MinHeap(List<T> sequence)
 		{
+			// Clones the list
 			var usableSequence = sequence.Select(elem => elem).ToList();
 
+			// Initializes a new list for the vector
 			_heapVector = new List<T>();
 
 			// Add first element of the list
@@ -37,30 +43,39 @@ namespace assignment1.structures
 
 		public void Add(T element)
 		{
+			// Add the element
 			_heapVector.Add(element);
+			// Heapify up
 			_heapifyUp();
 		}
 
 		public T RemoveMin()
 		{
+			// If the heap is empty, return an empty element
 			if (_heapVector.Count() < 2)
 			{
 				return default(T);
 			}
+			// Assign a reference to the top element, the min
 			var element = _heapVector[1];
+			// If the heap only has one element, remove it
 			if (_heapVector.Count() == 2)
 			{
 				_heapVector.RemoveAt(1);
 			}
 			else
 			{
+				// Bring the last element to the top
 				_heapVector[1] = _heapVector.Last();
+				// Remove the reference to the last element
 				_heapVector.RemoveAt(_heapVector.Count() - 1);
+				// Heapify down
 				_heapifyDown();
 			}
 			return element;
 		}
 
+		// Simply print the elements in order
 		public void Print()
 		{
 			foreach (var element in _heapVector)
@@ -70,11 +85,13 @@ namespace assignment1.structures
 			}
 		}
 
+		// Return whether or not the heap is empty
 		public bool isEmpty()
 		{
 			return _heapVector.Count() == 1;
 		}
 
+		// Restore heap order by heapifying up
 		private void _heapifyUp()
 		{
 			// Get the initial index of the inserted element
@@ -90,6 +107,7 @@ namespace assignment1.structures
 			}
 		}
 
+		// Restore heap order by heapifying down
 		private void _heapifyDown()
 		{
 			var i = 1;

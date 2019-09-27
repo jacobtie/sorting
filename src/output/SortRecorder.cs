@@ -13,18 +13,25 @@ namespace assignment1.output
 	{
 		public static void Run()
 		{
+			// Create a string builder to hold the log messages
 			var sb = new StringBuilder();
 
 			_writeMessage("ITCS 6114 Algorithms & Data Structures Assignment 1", sb);
 			_writeMessage("This will take a while! When this program finishes execution, a CSV will be produced in this directory displaying the outputs.", sb);
 
+			// Hold a list of CSV records for the output
 			var csvRecords = new List<CSVRecord>();
+			// Store all the input sizes which will be recorded
 			var inputSizes = new int[] { 10, 100, 1000, 1500, 2000, 2500, 4000, 4500, 5000, 7500, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 100000 };
+			// Create a stopwatch to record sorting times
 			var stopWatch = new Stopwatch();
+			// Create a rng
 			var rand = new Random();
+			// Run 5 iterations
 			for (int i = 1; i <= 5; i++)
 			{
 				_writeMessage($"Starting Test Iteration {i}", sb);
+				// Run for each input size
 				foreach (var n in inputSizes)
 				{
 					var record = new CSVRecord { Iteration = i, NumElements = n };
@@ -169,20 +176,26 @@ namespace assignment1.output
 
 		public static void RunEdgeCases()
 		{
+			// Create a string builder to hold the log messages
 			var sb = new StringBuilder();
 
 			_writeMessage("ITCS 6114 Algorithms & Data Structures Assignment 1: Edge Cases", sb);
 			_writeMessage("This will take a while! When this program finishes execution, a CSV will be produced in this directory displaying the outputs.", sb);
 
+			// Create two lists of CSV records, one for each edge case
 			var csvSortedRecords = new List<CSVRecord>();
 			var csvReversedRecords = new List<CSVRecord>();
+			// Create list of input sizes
 			var inputSizes = new int[] { 10, 100, 1000, 1500, 2000, 2500, 4000, 4500, 5000, 7500, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 100000 };
+			// Create stopwatch
 			var stopWatch = new Stopwatch();
+			// Create rng
 			var rand = new Random();
-
+			// Run 5 iterations
 			for (int i = 1; i <= 5; i++)
 			{
 				_writeMessage($"Starting Test Iteration {i}", sb);
+				// Run for each input size
 				foreach (var n in inputSizes)
 				{
 					var sortedRecord = new CSVRecord { Iteration = i, NumElements = n };
@@ -429,9 +442,9 @@ namespace assignment1.output
 				csv.WriteRecords<CSVRecord>(csvReversedRecords);
 			}
 
-			Console.WriteLine("Writing to output.txt ...");
+			Console.WriteLine("Writing to output-edgecases.txt ...");
 
-			using (var writer = new StreamWriter("output.txt"))
+			using (var writer = new StreamWriter("output-edgecases.txt"))
 			{
 				writer.Write(sb.ToString());
 			}
@@ -439,6 +452,7 @@ namespace assignment1.output
 			Console.WriteLine("All writing successful!");
 		}
 
+		// Ensure that the sort actually worked
 		private static bool _isSortCorrect(List<int> results)
 		{
 			for (int i = 1; i < results.Count; i++)
@@ -452,6 +466,7 @@ namespace assignment1.output
 			return true;
 		}
 
+		// Write a message to the console as well as append it to a string builder
 		private static void _writeMessage(string message, StringBuilder stringBuilder)
 		{
 			Console.WriteLine(message);
