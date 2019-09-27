@@ -11,6 +11,12 @@ namespace assignment1.sorting
 		// Method to start the sort by partioning the list and sort each side
 		public static List<T> Sort(List<T> seq)
 		{
+			// Check to see if sequence list is less than or equal to 10 elements, if so then use insertion sort
+			if (seq.Count <= 10)
+			{
+				return InsertionSort.Sort(seq);
+			}
+
 			// Copy the original list into the sorted list
 			sortedList = new List<T>(seq);
 
@@ -89,7 +95,7 @@ namespace assignment1.sorting
 			}
 
 			// Return the indices of the left and right indices after partitioning
-			return new int[2] {left, right};
+			return new int[2] { left, right };
 		}
 
 		// Method to swap the values at two indices in the sorted list
@@ -110,20 +116,20 @@ namespace assignment1.sorting
 		{
 			// Calculate the mid index
 			int mid = (end + start) / 2;
- 
+
 			// If the start value is the median
-			if ((sortedList[mid].CompareTo(sortedList[start]) < 0 && 
-				sortedList[start].CompareTo(sortedList[end]) < 0) || 
-				(sortedList[end].CompareTo(sortedList[start]) < 0 && 
+			if ((sortedList[mid].CompareTo(sortedList[start]) < 0 &&
+				sortedList[start].CompareTo(sortedList[end]) < 0) ||
+				(sortedList[end].CompareTo(sortedList[start]) < 0 &&
 				sortedList[start].CompareTo(sortedList[mid]) < 0))
 			{
 				// Return the index of the start value
 				return start;
 			}
 			// Else if the end value is the median
-			else if ((sortedList[start].CompareTo(sortedList[end]) < 0 && 
-					sortedList[end].CompareTo(sortedList[mid]) < 0) || 
-					(sortedList[mid].CompareTo(sortedList[end]) < 0 && 
+			else if ((sortedList[start].CompareTo(sortedList[end]) < 0 &&
+					sortedList[end].CompareTo(sortedList[mid]) < 0) ||
+					(sortedList[mid].CompareTo(sortedList[end]) < 0 &&
 					sortedList[end].CompareTo(sortedList[start]) < 0))
 			{
 				// Return the index of the end value
