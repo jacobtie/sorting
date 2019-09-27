@@ -5,3 +5,7 @@ omnisharp.json
 # C# Gunk
 bin
 obj
+
+# Test Output
+*.csv
+*.txt

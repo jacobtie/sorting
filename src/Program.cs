@@ -1,4 +1,7 @@
-﻿using System;
+using System;
+using assignment1.output;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace assignment1
 {
@@ -6,10 +9,12 @@ namespace assignment1
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			SortRecorder.Run();
+			Console.WriteLine();
+			SortRecorder.RunEdgeCases();
 
-			Console.WriteLine("\nPress enter to exit...");
-			Console.Read();
+			Console.WriteLine("\nPress the enter key to exit...");
+			Console.ReadLine();
 		}
 	}
 }
