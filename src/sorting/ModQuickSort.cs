@@ -11,12 +11,6 @@ namespace assignment1.sorting
 		// Method to start the sort by partioning the list and sort each side
 		public static List<T> Sort(List<T> seq)
 		{
-			// Check to see if sequence list is less than or equal to 10 elements, if so then use insertion sort
-			if (seq.Count <= 10)
-			{
-				return InsertionSort.Sort(seq);
-			}
-
 			// Copy the original list into the sorted list
 			sortedList = new List<T>(seq);
 
@@ -33,20 +27,55 @@ namespace assignment1.sorting
 			return sortedList;
 		}
 
-		// Method to recursively partion the current portion and sort each side
+		// Method to recursively partition the current portion and sort each side
 		public static void Sort(int start, int end)
 		{
 			// If start is less than end
 			if (start < end)
 			{
-				// Partition the current portion into two sides
-				int[] index = partition(start, end);
+				// If the size of the current portion is less than or equal to 10
+				if (end - start <= 10)
+				{
+					// Use insertion sort instead
+					InsertionSort(start, end);
+				}
+				else
+				{
+					// Partition the current portion into two sides
+					int[] index = partition(start, end);
 
-				// Sort the first side of the current portion before the pivot
-				Sort(start, index[1]);
+					// Sort the first side of the current portion before the pivot
+					Sort(start, index[1]);
 
-				// Sort the second side of the current portion before the pivot
-				Sort(index[0], end);
+					// Sort the second side of the current portion before the pivot
+					Sort(index[0], end);
+				}
+			}
+		}
+
+		// Method to perform insertion sort on small portions of the sorted list
+		private static void InsertionSort(int start, int end)
+		{
+			// For every value after the first value in the sorted list
+			for (int i = start + 1; i <= end; i++)
+			{
+				// Set k equal to the current index
+				int k = i;
+
+				// While k is greater than start and 
+				// the value before index k is greater 
+				// than the current value of the sorted list
+				while (k > start && sortedList[k - 1].CompareTo(sortedList[i]) > 0)
+				{
+					// Set the value at k equal to the value before k in the sorted list
+					sortedList[k] = sortedList[k - 1];
+
+					// Decrement k
+					k--;
+				}
+
+				// Set the value at k equal to the current value of the sorted list
+				sortedList[k] = sortedList[i];
 			}
 		}
 
