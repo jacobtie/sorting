@@ -1,4 +1,4 @@
-# Assignment I - Sorting
+# Sorting Algorithms
 
 ## How to Run
 
